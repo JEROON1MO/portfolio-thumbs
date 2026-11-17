@@ -50,12 +50,21 @@
   @media (max-width:640px){ nav a.link{display:none} }
 
   /* Hero */
-  .hero{padding:112px 24px 120px;gap:72px}
+  .hero{padding:88px 24px 120px;gap:64px}
   .hero h1{margin:0;font-size:clamp(48px,8.5vw,104px);line-height:1;font-weight:700;letter-spacing:-.045em}
   .hero .sub{margin:0;font-size:clamp(26px,3.6vw,40px);line-height:1.15;font-weight:600;letter-spacing:-.025em}
-  .pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px}
+  .pair{max-width:1760px;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:clamp(16px,2vw,36px)}
+  .hop{align-self:center;margin-bottom:40px;display:flex;align-items:center;justify-content:center}
+  .hop-in{width:64px;height:64px;border-radius:999px;background:#1d1d1f;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.22);animation:float 2.6s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translate(-4px,0)}50%{transform:translate(6px,-6px)}}
+  @media (max-width:860px){
+    .pair{grid-template-columns:1fr;gap:20px}
+    .hop{margin:0}
+    .hop svg{transform:rotate(90deg)}
+    .hop-in{width:56px;height:56px}
+  }
   .pair figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:18px}
-  .thumb{width:100%;aspect-ratio:16/9;border-radius:22px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.06),0 14px 36px rgba(0,0,0,.10);background:#e8e8ed}
+  .thumb{width:100%;aspect-ratio:16/9;border-radius:clamp(16px,1.6vw,28px);overflow:hidden;box-shadow:0 2px 4px rgba(0,0,0,.06),0 24px 60px rgba(0,0,0,.16);background:#e8e8ed}
   .thumb img{width:100%;height:100%;object-fit:cover}
   figcaption{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:#6e6e73}
   figcaption i{width:8px;height:8px;border-radius:50%;background:#c7c7cc}
@@ -130,7 +139,7 @@
   footer{background:#f5f5f7;padding:0 24px}
   footer .wrap{padding:28px 0 40px;border-top:1px solid #d2d2d7;font-size:13px;color:#6e6e73}
 
-  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} .lift,.btn{transition:none} }
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} .lift,.btn{transition:none} .hop-in{animation:none} }
 </style>
 </head>
 <body>
@@ -159,6 +168,9 @@
         <div class="thumb lift"><img src="img/antes.webp" alt="Thumbnail antes" width="1280" height="720"></div>
         <figcaption><i></i>Antes</figcaption>
       </figure>
+      <div class="hop" aria-hidden="true"><div class="hop-in">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </div></div>
       <figure>
         <div class="thumb lift"><img src="img/depois.webp" alt="Thumbnail depois" width="1671" height="941"></div>
         <figcaption class="on"><i></i>Depois</figcaption>
