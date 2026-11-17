@@ -52,6 +52,7 @@
   /* Hero */
   .hero{padding:88px 24px 120px;gap:64px}
   .hero h1{margin:0;font-size:clamp(48px,8.5vw,104px);line-height:1;font-weight:700;letter-spacing:-.045em}
+  .hero-cmp{max-width:1440px}
   .hero .sub{margin:0;font-size:clamp(26px,3.6vw,40px);line-height:1.15;font-weight:600;letter-spacing:-.025em}
   .pair{max-width:1760px;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:clamp(16px,2vw,36px)}
   .hop{align-self:center;margin-bottom:40px;display:flex;align-items:center;justify-content:center}
@@ -156,39 +157,17 @@
 </header>
 
 <main>
-  <!-- HERO -->
+  <!-- HERO: comparador interativo -->
   <section class="section hero">
     <div class="head" style="max-width:980px;gap:24px">
       <p class="eyebrow">Thumbnails para YouTube</p>
       <h1>Antes. Depois.</h1>
       <p class="sub">A diferença entre rolar e clicar.</p>
     </div>
-    <div class="wrap pair">
-      <figure>
-        <div class="thumb lift"><img src="img/antes.webp" alt="Thumbnail antes" width="1280" height="720"></div>
-        <figcaption><i></i>Antes</figcaption>
-      </figure>
-      <div class="hop" aria-hidden="true"><div class="hop-in">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-      </div></div>
-      <figure>
-        <div class="thumb lift"><img src="img/depois.webp" alt="Thumbnail depois" width="1671" height="941"></div>
-        <figcaption class="on"><i></i>Depois</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- COMPARADOR -->
-  <section id="comparar" class="section gray">
-    <div class="head">
-      <p class="eyebrow">Interativo</p>
-      <h2 class="h2">Arraste. Veja a transformação.</h2>
-      <p class="lead">Das peças soltas à arte final. Deslize a barra e compare cada detalhe.</p>
-    </div>
-    <div class="wrap">
+    <div class="wrap hero-cmp">
       <div class="cmp" id="cmp">
-        <img src="img/comparar-antes.webp" alt="Montagem antes" loading="lazy">
-        <img class="after" src="img/comparar-depois.webp" alt="Thumbnail final" loading="lazy">
+        <img src="img/comparar-antes.webp" alt="Montagem antes" fetchpriority="high">
+        <img class="after" src="img/comparar-depois.webp" alt="Thumbnail final" fetchpriority="high">
         <span class="tag l">Depois</span>
         <span class="tag r">Antes</span>
         <input type="range" min="0" max="100" step="0.5" value="50" aria-label="Comparar antes e depois">
@@ -197,7 +176,29 @@
         </div></div>
       </div>
     </div>
-    <p class="lead" style="font-size:14px">Toque em qualquer ponto da imagem ou arraste a barra.</p>
+    <p class="lead" style="font-size:15px;margin-top:-24px">Arraste a barra ou toque na imagem para ver a transformação.</p>
+  </section>
+
+  <!-- ANTES E DEPOIS -->
+  <section id="comparar" class="section gray">
+    <div class="head">
+      <p class="eyebrow">Portfólio</p>
+      <h2 class="h2">Mesma cena. Outro impacto.</h2>
+      <p class="lead">Composição limpa, luz cinematográfica e o rosto no centro da história.</p>
+    </div>
+    <div class="wrap pair">
+      <figure>
+        <div class="thumb lift"><img src="img/antes.webp" alt="Thumbnail antes" width="1280" height="720" loading="lazy"></div>
+        <figcaption><i></i>Antes</figcaption>
+      </figure>
+      <div class="hop" aria-hidden="true"><div class="hop-in">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </div></div>
+      <figure>
+        <div class="thumb lift"><img src="img/depois.webp" alt="Thumbnail depois" width="1671" height="941" loading="lazy"></div>
+        <figcaption class="on"><i></i>Depois</figcaption>
+      </figure>
+    </div>
   </section>
 
   <!-- GTA 6 -->
