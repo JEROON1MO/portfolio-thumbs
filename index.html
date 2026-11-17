@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jerônimo · Thumbnails para YouTube</title>
+<meta name="description" content="Antes e depois de thumbnails para YouTube. Composição limpa, luz cinematográfica e o seu rosto no centro da história.">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Prévia do link (Instagram, WhatsApp). Troque SEU-USUARIO e NOME-DO-REPO pelo endereço final do site. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Thumbnails para YouTube · Antes e depois">
+<meta property="og:description" content="Um material feito exclusivamente para você. Arraste e veja a transformação.">
+<meta property="og:image" content="https://jeroon1mo.github.io/portfolio-thumbs/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#fff;color:#1d1d1f;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:#0066cc}a:hover{color:#004f9e}
+
+  .wrap{width:100%;max-width:1200px;margin:0 auto}
+  .section{padding:120px 24px;display:flex;flex-direction:column;align-items:center;gap:56px}
+  .head{max-width:860px;text-align:center;display:flex;flex-direction:column;gap:18px}
+  .eyebrow{margin:0;font-size:17px;font-weight:600;color:#86868b}
+  .h2{margin:0;font-size:clamp(38px,5.8vw,68px);line-height:1.04;font-weight:700;letter-spacing:-.04em}
+  .lead{margin:0;font-size:clamp(18px,1.9vw,21px);line-height:1.5;color:#6e6e73}
+  .gray{background:#f5f5f7}
+
+  .lift{transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s cubic-bezier(.2,.8,.2,1)}
+  .lift:hover{transform:translateY(-6px);box-shadow:0 2px 4px rgba(0,0,0,.06),0 28px 60px rgba(0,0,0,.16)}
+  .btn{transition:transform .2s ease,background-color .2s ease}
+  .btn:hover{transform:scale(1.02)}
+  .btn:active{transform:scale(.98)}
+  .btn:focus-visible,a:focus-visible{outline:3px solid #0071e3;outline-offset:3px}
+
+  /* Topo */
+  header{border-bottom:1px solid #ececf0;padding:0 24px}
+  header .wrap{height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{font-size:17px;font-weight:700;letter-spacing:-.01em}
+  .brand span{color:#86868b;font-weight:500}
+  nav{display:flex;align-items:center;gap:24px;font-size:15px;font-weight:500}
+  nav a.link{color:#424245;text-decoration:none}
+  .pill-dark{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:#1d1d1f;color:#fff!important;text-decoration:none;font-weight:600}
+  @media (max-width:640px){ nav a.link{display:none} }
+
+  /* Hero */
+  .hero{padding:112px 24px 120px;gap:72px}
+  .hero h1{margin:0;font-size:clamp(48px,8.5vw,104px);line-height:1;font-weight:700;letter-spacing:-.045em}
+  .hero .sub{margin:0;font-size:clamp(26px,3.6vw,40px);line-height:1.15;font-weight:600;letter-spacing:-.025em}
+  .pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px}
+  .pair figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:18px}
+  .thumb{width:100%;aspect-ratio:16/9;border-radius:22px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.06),0 14px 36px rgba(0,0,0,.10);background:#e8e8ed}
+  .thumb img{width:100%;height:100%;object-fit:cover}
+  figcaption{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:#6e6e73}
+  figcaption i{width:8px;height:8px;border-radius:50%;background:#c7c7cc}
+  figcaption.on{color:#1d1d1f} figcaption.on i{background:#0071e3}
+
+  /* Comparador */
+  .cmp{--pos:50%;position:relative;width:100%;aspect-ratio:16/9;border-radius:28px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.06),0 30px 70px rgba(0,0,0,.16);touch-action:pan-y;user-select:none;-webkit-user-select:none;background:#e8e8ed}
+  .cmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+  .cmp .after{clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+  .tag{position:absolute;top:20px;padding:8px 14px;border-radius:999px;font-size:13px;font-weight:700;letter-spacing:.02em;pointer-events:none;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);z-index:2}
+  .tag.l{left:20px;background:rgba(255,255,255,.9);color:#1d1d1f}
+  .tag.r{right:20px;background:rgba(29,29,31,.72);color:#fff}
+  .handle{position:absolute;top:0;bottom:0;left:var(--pos);width:0;z-index:2;pointer-events:none}
+  .handle::before{content:"";position:absolute;top:0;bottom:0;left:-1.5px;width:3px;background:#fff;box-shadow:0 0 14px rgba(0,0,0,.35)}
+  .knob{position:absolute;top:50%;left:-28px;width:56px;height:56px;margin-top:-28px;border-radius:999px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center}
+  .cmp input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;z-index:3;-webkit-appearance:none;appearance:none;background:transparent}
+  .cmp input::-webkit-slider-thumb{-webkit-appearance:none;width:64px;height:64px}
+  .cmp input::-moz-range-thumb{width:64px;height:64px;border:0;background:transparent}
+  .cmp input:focus-visible ~ .handle .knob{outline:3px solid #0071e3;outline-offset:3px}
+
+  /* GTA */
+  .gta{padding:128px 24px;gap:64px;background:linear-gradient(135deg,rgba(255,79,139,.16) 0%,rgba(161,44,187,.13) 35%,rgba(255,157,92,.14) 68%,rgba(63,243,255,.16) 100%),#fff}
+  .gta .big{width:100%;max-width:1320px;aspect-ratio:16/9;border-radius:32px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.06),0 34px 90px rgba(80,10,90,.28)}
+  .gta .big img{width:100%;height:100%;object-fit:cover}
+
+  /* Processo */
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;justify-content:center;gap:24px}
+  .card{flex:1 1 360px;border-radius:28px;padding:44px 36px;display:flex;flex-direction:column;gap:32px}
+  .card .kick{margin:0;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+  .card h3{margin:0;font-size:32px;font-weight:700;letter-spacing:-.03em}
+  .item{background:#fff;border-radius:18px;padding:18px 20px;display:flex;align-items:center;gap:16px}
+  .ico{width:48px;height:48px;flex:none;border-radius:14px;background:#1d1d1f;display:flex;align-items:center;justify-content:center}
+  .item b{display:block;font-size:18px;font-weight:600;letter-spacing:-.01em}
+  .item small{display:block;margin-top:3px;font-size:15px;line-height:1.4;color:#6e6e73}
+  .arrow{flex:0 0 auto;display:flex;align-items:center;justify-content:center}
+  .arrow div{width:52px;height:52px;border-radius:999px;background:#f5f5f7;display:flex;align-items:center;justify-content:center}
+  @media (max-width:800px){ .arrow svg{transform:rotate(90deg)} }
+  .dark{background:#1d1d1f;color:#fff}
+  .step{display:flex;gap:18px}
+  .step .rail{display:flex;flex-direction:column;align-items:center}
+  .dot{width:44px;height:44px;border-radius:999px;background:#fff;color:#1d1d1f;font-size:17px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .line{width:2px;flex:1;min-height:28px;background:#3a3a3c}
+  .step .txt{padding:9px 0 30px}
+  .step:last-child .txt{padding-bottom:0}
+  .step b{display:block;font-size:20px;font-weight:600;letter-spacing:-.015em}
+  .step small{display:block;margin-top:4px;font-size:15px;line-height:1.4;color:#a1a1a6}
+
+  /* Planos */
+  .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;align-items:stretch}
+  .plan{background:#fff;border-radius:28px;padding:40px 32px;display:flex;flex-direction:column;gap:28px}
+  .plan .kick{margin:0;font-size:13px;font-weight:700;color:#6e6e73;letter-spacing:.06em;text-transform:uppercase}
+  .plan h3{margin:0;font-size:28px;font-weight:700;letter-spacing:-.025em}
+  .price{display:flex;align-items:baseline;gap:4px;margin-top:4px}
+  .price .cur{font-size:18px;font-weight:600;color:#6e6e73}
+  .price .val{font-size:60px;font-weight:700;letter-spacing:-.045em;line-height:1}
+  .price .per{font-size:17px;font-weight:500;color:#6e6e73}
+  .meta{margin:0;font-size:15px;color:#6e6e73}
+  .meta strong{color:#1d1d1f;font-weight:600}
+  .rule{height:1px;background:#e5e5ea}
+  .plan ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;font-size:16px;line-height:1.4}
+  .plan li{display:flex;gap:12px;align-items:flex-start}
+  .plan li svg{flex:none;margin-top:1px}
+  .cta{margin-top:auto;display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:999px;background:#f5f5f7;color:#1d1d1f!important;font-size:17px;font-weight:600;text-decoration:none}
+  .plan.feat{background:#1d1d1f;color:#fff;box-shadow:0 30px 70px rgba(0,0,0,.22)}
+  .plan.feat .kick,.plan.feat .price .per,.plan.feat .meta{color:#a1a1a6}
+  .plan.feat .price .cur,.plan.feat .price .val{color:#30d158}
+  .plan.feat .meta strong{color:#fff}
+  .plan.feat .rule{background:#3a3a3c}
+  .plan.feat .cta{background:#fff}
+  .badge{padding:5px 12px;border-radius:999px;background:rgba(48,209,88,.16);color:#30d158;font-size:13px;font-weight:700}
+
+  footer{background:#f5f5f7;padding:0 24px}
+  footer .wrap{padding:28px 0 40px;border-top:1px solid #d2d2d7;font-size:13px;color:#6e6e73}
+
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} .lift,.btn{transition:none} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="brand">Jerônimo<span> · Thumbnails</span></span>
+    <nav>
+      <a class="link" href="#comparar">Portfólio</a>
+      <a class="link" href="#processo">Como funciona</a>
+      <a class="pill-dark btn" href="#planos">Ver planos</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="section hero">
+    <div class="head" style="max-width:980px;gap:24px">
+      <p class="eyebrow">Thumbnails para YouTube</p>
+      <h1>Antes. Depois.</h1>
+      <p class="sub">A diferença entre rolar e clicar.</p>
+    </div>
+    <div class="wrap pair">
+      <figure>
+        <div class="thumb lift"><img src="img/antes.webp" alt="Thumbnail antes" width="1280" height="720"></div>
+        <figcaption><i></i>Antes</figcaption>
+      </figure>
+      <figure>
+        <div class="thumb lift"><img src="img/depois.webp" alt="Thumbnail depois" width="1671" height="941"></div>
+        <figcaption class="on"><i></i>Depois</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- COMPARADOR -->
+  <section id="comparar" class="section gray">
+    <div class="head">
+      <p class="eyebrow">Interativo</p>
+      <h2 class="h2">Arraste. Veja a transformação.</h2>
+      <p class="lead">Das peças soltas à arte final. Deslize a barra e compare cada detalhe.</p>
+    </div>
+    <div class="wrap">
+      <div class="cmp" id="cmp">
+        <img src="img/comparar-antes.webp" alt="Montagem antes" loading="lazy">
+        <img class="after" src="img/comparar-depois.webp" alt="Thumbnail final" loading="lazy">
+        <span class="tag l">Depois</span>
+        <span class="tag r">Antes</span>
+        <input type="range" min="0" max="100" step="0.5" value="50" aria-label="Comparar antes e depois">
+        <div class="handle"><div class="knob">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l-6 6 6 6"/><path d="M15 6l6 6-6 6"/></svg>
+        </div></div>
+      </div>
+    </div>
+    <p class="lead" style="font-size:14px">Toque em qualquer ponto da imagem ou arraste a barra.</p>
+  </section>
+
+  <!-- GTA 6 -->
+  <section class="section gta">
+    <div class="head" style="max-width:900px">
+      <p class="eyebrow" style="font-weight:700;color:#b0105f">GTA 6 está chegando</p>
+      <h2 class="h2" style="font-size:clamp(42px,7vw,92px);line-height:1;letter-spacing:-.045em">Bem-vindo ao<br>clima de Vice City.</h2>
+      <p class="lead" style="max-width:680px;align-self:center;color:#4a4a4f">Neon, pôr do sol e você no centro da cena. O lançamento mais esperado da década merece thumbs à altura.</p>
+    </div>
+    <div class="big lift"><img src="img/gta6.webp" alt="Thumbnail no clima de GTA 6" loading="lazy" width="1672" height="941"></div>
+  </section>
+
+  <!-- PROCESSO -->
+  <section id="processo" class="section" style="padding:128px 24px;gap:64px">
+    <div class="head">
+      <p class="eyebrow">Como funciona</p>
+      <h2 class="h2">Simples do início ao fim.</h2>
+      <p class="lead">Você envia três itens. Eu cuido de todo o resto.</p>
+    </div>
+    <div class="wrap flow">
+      <div class="card gray">
+        <div><p class="kick" style="color:#6e6e73">Você envia</p><h3 style="margin-top:8px">O ponto de partida</h3></div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="item"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></div><div><b>Foto do seu rosto</b><small>Com a expressão que combina com o vídeo</small></div></div>
+          <div class="item"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9h4M8 7v4"/><path d="M15 9.5h.01M17.5 11.5h.01"/><path d="M7 4h10a5 5 0 0 1 5 5v3a4 4 0 0 1-7 2.6l-1-1.1h-4l-1 1.1A4 4 0 0 1 2 12V9a5 5 0 0 1 5-5z"/></svg></div><div><b>Uma cena do jogo</b><small>Print ou trecho do gameplay</small></div></div>
+          <div class="item"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg></div><div><b>Uma referência</b><small>O estilo que você imagina para a thumb</small></div></div>
+        </div>
+      </div>
+      <div class="arrow"><div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div></div>
+      <div class="card dark">
+        <div><p class="kick" style="color:#a1a1a6">Eu entrego</p><h3 style="margin-top:8px">Sua thumb pronta</h3></div>
+        <div>
+          <div class="step"><div class="rail"><div class="dot">1</div><div class="line"></div></div><div class="txt"><b>Criação em 4K</b><small>Recorte, luz, cor e tipografia sob medida</small></div></div>
+          <div class="step"><div class="rail"><div class="dot">2</div><div class="line"></div></div><div class="txt"><b>Validação</b><small>Você aprova ou pede ajustes</small></div></div>
+          <div class="step"><div class="rail"><div class="dot" style="background:#30d158"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0b2e14" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div></div><div class="txt"><b>Entrega no Drive</b><small>Arquivo em alta resolução, pronto para publicar</small></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANOS -->
+  <section id="planos" class="section gray" style="padding:128px 24px 136px;gap:64px">
+    <div class="head">
+      <p class="eyebrow">Planos</p>
+      <h2 class="h2">Escolha o ritmo do seu canal.</h2>
+      <p class="lead">Todos os planos incluem até 2 rodadas de ajustes por arte. Precisa de mais thumbs? A gente combina.</p>
+    </div>
+    <div class="wrap plans">
+      <div class="plan">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <p class="kick">Para quem está começando</p>
+          <h3>Starter</h3>
+          <div class="price"><span class="cur">R$</span><span class="val">300</span><span class="per">/mês</span></div>
+          <p class="meta"><strong>4 thumbnails</strong> por mês · R$ 75 cada</p>
+        </div>
+        <div class="rule"></div>
+        <ul>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Design profissional</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Tratamento de cor e iluminação</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Composição e efeitos visuais</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Até 2 rodadas de ajustes por arte</li>
+        </ul>
+        <a class="cta btn" data-wa="Olá! Tenho interesse no plano Starter de thumbnails." href="#" target="_blank" rel="noopener">Começar com o Starter</a>
+      </div>
+
+      <div class="plan feat">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+            <p class="kick">Para quem publica toda semana</p><span class="badge">Mais escolhido</span>
+          </div>
+          <h3>Creator</h3>
+          <div class="price"><span class="cur">R$</span><span class="val">560</span><span class="per">/mês</span></div>
+          <p class="meta"><strong>8 thumbnails</strong> por mês · R$ 70 cada</p>
+        </div>
+        <div class="rule"></div>
+        <ul>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Design personalizado para o seu canal</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Composição visual avançada</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Iluminação e efeitos realistas</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Tratamento de cor profissional</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Até 2 rodadas de ajustes por arte</li>
+        </ul>
+        <a class="cta btn" data-wa="Olá! Tenho interesse no plano Creator de thumbnails." href="#" target="_blank" rel="noopener">Escolher o Creator</a>
+      </div>
+
+      <div class="plan">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <p class="kick">Para canais em crescimento</p>
+          <h3>Pro</h3>
+          <div class="price"><span class="cur">R$</span><span class="val">780</span><span class="per">/mês</span></div>
+          <p class="meta"><strong>12 thumbnails</strong> por mês · R$ 65 cada</p>
+        </div>
+        <div class="rule"></div>
+        <ul>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Design personalizado</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Composições mais elaboradas</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Manipulação de imagens e personagens</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Iluminação e efeitos cinematográficos</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Prioridade na fila de produção</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Até 2 rodadas de ajustes por arte</li>
+        </ul>
+        <a class="cta btn" data-wa="Olá! Tenho interesse no plano Pro de thumbnails." href="#" target="_blank" rel="noopener">Escolher o Pro</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© 2026 Jerônimo · Thumbnails para YouTube</div></footer>
+
+<script>
+  // ⚙️ Coloque aqui seu WhatsApp com DDI + DDD, só números. Ex.: '5562999998888'
+  const WHATSAPP = '';
+
+  // Botões dos planos → WhatsApp com mensagem pronta
+  document.querySelectorAll('[data-wa]').forEach(function (a) {
+    if (!WHATSAPP) { a.removeAttribute('target'); a.href = '#planos'; return; }
+    a.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(a.dataset.wa);
+  });
+
+  // Comparador antes/depois
+  var cmp = document.getElementById('cmp');
+  var range = cmp.querySelector('input');
+  function setPos(v) { cmp.style.setProperty('--pos', v + '%'); }
+  range.addEventListener('input', function () { setPos(range.value); });
+  setPos(range.value);
+</script>
+</body>
+</html>
